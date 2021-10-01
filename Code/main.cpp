@@ -2,7 +2,6 @@
 #include <fstream>      //Library for inputs/outputs for stream.
 #include <string>       //Library for string functionality.
 #include <conio.h>      //Library for console input/output.
-#include <limits>       //Library for defining numeric limits.
 #include <sstream>      //Library for string stream classes.
 #include <algorithm>    //Library for functions.
 #include <windows.h>    //Lubrary for declarations for functions in windows API.
