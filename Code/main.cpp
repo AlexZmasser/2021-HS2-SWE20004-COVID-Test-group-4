@@ -47,6 +47,7 @@ int main()  //Main function !ACTTING MENU!.
             cout << endl << "Invalid Input Please Select 1-6" << endl << endl;  //Output statement.
             Sleep(1000);    //Waits 1 second.
         }
+        system("CLS");
         switch (op)                     //Switch case structure using value op
         {
         case 1:                         //if op = 1 case 1 will run. 
