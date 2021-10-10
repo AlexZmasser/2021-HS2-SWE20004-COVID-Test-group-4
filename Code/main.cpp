@@ -6,6 +6,24 @@
 #include <algorithm>    //Library for functions.
 #include <windows.h>    //Lubrary for declarations for functions in windows API.
 
+#define PATIENT_ID 10
+#define NAME 35
+#define DOB 10
+#define ADRESS 35
+#define DATE 16
+#define TRAVEL 3
+#define COVID_TEST 8
+#define STATUS 5
+
+#define NAME_SPACE (PATIENT_ID)
+#define DOB_SPACE (PATIENT_ID + NAME)
+#define ADRESS_SPACE (DOB_SPACE + DOB) 
+#define DATE_SPACE (ADRESS_SPACE + ADRESS)
+#define TRAVEL_SPACE (DATE_SPACE + DATE)
+#define COVID_TEST_SPACE (TRAVEL_SPACE + TRAVEL)
+#define STATUS_SPACE (COVID_TEST_SPACE + COVID_TEST)
+
+
 using namespace std;    //Defines scope.
 
 void createPatient();    //Function prototype.
@@ -82,6 +100,53 @@ int main()  //Main function !ACTTING MENU!.
 
 void createPatient()   //Function.
 {
+    
+    //system("clear");
+    string name, courseDetails, units, grades, StudentId;
+    bool cont = true;
+    char add;
+    int unitNumber;
+    ofstream patientDatabase;       //Opening a file in write mode.
+    patientDatabase.open("patientDatabase.text", ofstream::app);
+
+    while (cont == true)
+    {
+        cout << "Please Enter the studens full name : ";
+        getline(cin, name);
+        cout << "Please Enter " << name << "'s Student Id : ";
+        getline(cin, StudentId);
+        cout << "Please Enter " << name << "'s course details : ";
+        getline(cin, courseDetails);
+        cout << "How many Units does " << name << " have ?";
+        cin >> unitNumber;
+        cin.get();
+
+        patientDatabase << left <<setw(PATIENT_ID) << name << setw(12) << StudentId << setw(20) << courseDetails << endl <<
+            left << setw(20) << "Units " << setw(12) << "Grades " << endl;
+        for (int i = 1;i <= unitNumber;i++)
+        {
+            cout << "Please Enter " << name << " unit " << i << ":";
+            getline(cin, units);
+            cout << "Please Enter " << name << " grade for " << units << " : ";
+            getline(cin, grades);
+            patientDatabase << left << setw(20) << units << setw(12) << grades << endl;
+        }
+
+        cout << "Student Added !" << endl;
+        cout << "Would you like to add another? Y/N : ";
+        cin >> add;
+        cin.get();
+        if (add == 'y' || add == 'Y')
+        {
+            cont = true;
+        }
+        else if (add == 'n' || add == 'N')
+        {
+            cont = false;
+        }
+        patientDatabase << endl;
+    }
+    
 
 }
 
