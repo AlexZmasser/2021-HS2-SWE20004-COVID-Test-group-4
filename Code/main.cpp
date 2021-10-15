@@ -162,6 +162,18 @@ void covidResult()     //Function.
 
 void displayHotSpots() //Function.
 {
+    vector<string> hotSpot; // {"Melbourne Central", "Kew", "Melbourne Airport","Hawthorn","Richmond"};
+    ofstream displayHotSpots;
+    displayHotSpots.open("displayHotSpots.text", ofstream::app);
+    cout <<"These are the current Hotspots :"<<endl;
+    
+    
+    for(int i = 0; i <hotSpot.size() ; i++)
+    {
+        displayHotSpots << hotSpot[i] << endl;
+        cout << hotSpot[i] << endl;
+    }
+
 
 }
 
