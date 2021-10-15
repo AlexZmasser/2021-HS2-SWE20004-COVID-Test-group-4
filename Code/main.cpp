@@ -162,12 +162,111 @@ void covidResult()     //Function.
 
 void displayHotSpots() //Function.
 {
+    vector<string> hotSpot; // {"Melbourne Central", "Kew", "Melbourne Airport","Hawthorn","Richmond"};
+    ofstream displayHotSpots;
+    displayHotSpots.open("displayHotSpots.text", ofstream::app);
+    cout <<"These are the current Hotspots :"<<endl;
+    
+    
+    for(int i = 0; i <hotSpot.size() ; i++)
+    {
+        displayHotSpots << hotSpot[i] << endl;
+        cout << hotSpot[i] << endl;
+    }
+
 
 }
 
 void updatePatient()   //Function.
 {
+    string line, choice, editPatient, lookingFor, str1, str2, id = "id", name = "name", test = "12345";
+    ifstream myfile("patientDatabase.text");
+    int UpdateChoice;
+    cout << "Update patient." << endl;
+    cout << "Please choose how you would like to search for the Patient name/id: ";
+    cin >> choice;
+    cin.get();
+    cout << "What " << choice << " are you looking for : ";
+    cin >> lookingFor;
+    cin.get();
+  
+    if (myfile.is_open())
+    {
+        while (getline(myfile, line))
+        {
 
+            str1 = line.substr(ID_START, 5);
+            str2 = line.substr(NAME_SPACE, NAME);
+
+            //cout << str1 << str2 << endl;
+
+            if(choice.compare(id)==0)
+            {
+                //lookingFor.resize(PATIENT_ID);
+                if ( lookingFor.compare(str1)==0)
+                {
+                    cout << "Patient found!" << endl;
+                    editPatient = line;
+                    cout << "What you like to update about the patient ?" << endl
+                    << "1.Patient ID "<<endl<< "2.Name "<<endl<< "3.Date of birth "<<endl << "4.Adress "<<endl
+                    << "5.Travel "<<endl<< "6.Covid results "<<endl << "7.Status "<<endl
+                    <<"Please choose the correlating number: ";
+                    cin>>UpdateChoice;
+                    cin.get();
+                    switch (UpdateChoice)
+                    {
+                    case 1:
+                        
+                        break;
+                           
+                    case 2:
+                        
+                        break;
+                            
+                    case 3:
+                        
+                        break;
+                           
+                    case 4:
+                            
+                        break;
+                            
+                    case 5:
+                        
+                            break;
+                            
+                    case 6:
+                       
+                        break;                                          //Break from case.
+                    case 7:
+                           
+                            break;                                          //Break from case.
+                    default:                                            //if none of the cases matches op then this will.
+                        cout << "Error 1: [Inside Default]" << endl;    //Error statement.
+                    }
+                    //override line
+                }
+            }
+            /*
+
+            if (choice.compare(name)==0)
+            {
+                str2 = line.substr(NAME_SPACE, NAME);
+                if (lookingFor.compare(str2)==0)
+                {
+                    //cout << "Patient found!" << endl;
+                    editPatient = line;
+                }
+            }
+             */
+            
+
+        }
+        cout << editPatient<<endl;
+        myfile.close();
+    }
+    else cout << "Unable to open file";
+   
 }
 
 void infectedRecord()  //Function.
