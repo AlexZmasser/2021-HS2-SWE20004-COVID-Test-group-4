@@ -48,10 +48,10 @@ int main()  //Main function !ACTTING MENU!.
     int i = 0;          //Declearing and assigning veriable.
 
 
-    while (op!=6)
+    while (op != 6)
     {
         operation.clear();  //Clear the string.
-        cout << "Press 1 - Enter Details for COVID-19 Test Recommendation" << endl
+        cout << "Press 1 - Enter Details for a new Patient" << endl
             << "Press 2 - Submit Test Results" << endl
             << "Press 3 - Display Tier Exposure Sites" << endl
             << "Press 4 - Update Patient Details" << endl
@@ -60,7 +60,7 @@ int main()  //Main function !ACTTING MENU!.
             << "Enter Number: ";        //Output statement.
         cin >> op;
         cin.get();
-
+        
         /*getline(cin, operation);        //Read string that user inputs.
         stringstream toNum(operation);  //Object from class stringstream.
         toNum >> op; */                   //Object value of operation and stream it to integer op.
@@ -68,21 +68,21 @@ int main()  //Main function !ACTTING MENU!.
         if (1 > op || op > 6) //If input isn't within 1-6.
         {
             cout << endl << "Invalid Input Please Select 1-6" << endl << endl;  //Output statement.
-            Sleep(1000);    //Waits 1 second.
+            //Sleep(1000);    //Waits 1 second.
         }
         system("CLS");
         switch (op)                     //Switch case structure using value op
         {
-        case 1:                         //if op = 1 case 1 will run. 
+        case 1:                         //if op = 1 case 1 will run.
             createPatient();            //Calling functions.
             break;                      //Break from the case.
-        case 2:                         //if op = 2 case 2 will run. 
+        case 2:                         //if op = 2 case 2 will run.
             covidResult();              //Calling functions.
             break;                      //Break from the case.
-        case 3:                         //if op = 3 case 3 will run. 
+        case 3:                         //if op = 3 case 3 will run.
             displayHotSpots();          //Calling functions.
             break;                      //Break from the case.
-        case 4:                         //if op = 4 case 4 will run. 
+        case 4:                         //if op = 4 case 4 will run.
             updatePatient();            //Calling functions.
             break;                      //Break from the case.
         case 5:                         //if op = 5 case 5 will run.
@@ -97,11 +97,7 @@ int main()  //Main function !ACTTING MENU!.
 
     }    //Condition to repeat loop if number are outside range.
 
-
-
-    system("pause");    //Pauses batch file.
     return 0;           //Return integer to the functions.
-}
 
 void createPatient()   //Function.
 {
