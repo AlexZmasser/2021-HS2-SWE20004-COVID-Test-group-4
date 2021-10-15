@@ -1,23 +1,27 @@
 #include <iostream>     //Library for inputs/outputs.
+#include <iomanip>
+#include <vector>
+#include <cstring>
 #include <fstream>      //Library for inputs/outputs for stream.
 #include <string>       //Library for string functionality.
-#include <conio.h>      //Library for console input/output.
+#include <limits>       //Library for defining numeric limits.
 #include <sstream>      //Library for string stream classes.
 #include <algorithm>    //Library for functions.
-#include <windows.h>    //Lubrary for declarations for functions in windows API.
 
-#define PATIENT_ID 10
+#define PATIENT_ID 4
 #define NAME 35
-#define DOB 10
+#define DOB 11
 #define ADRESS 35
-#define DATE 16
+#define DATE 11
 #define TRAVEL 3
 #define COVID_TEST 8
 #define STATUS 5
 
-#define NAME_SPACE (PATIENT_ID)
-#define DOB_SPACE (PATIENT_ID + NAME)
-#define ADRESS_SPACE (DOB_SPACE + DOB) 
+#define ID_START 0
+#define PATIENT_SPACE 10
+#define NAME_SPACE (PATIENT_SPACE)
+#define DOB_SPACE (NAME_SPACE + NAME)
+#define ADRESS_SPACE (DOB_SPACE + DOB)
 #define DATE_SPACE (ADRESS_SPACE + ADRESS)
 #define TRAVEL_SPACE (DATE_SPACE + DATE)
 #define COVID_TEST_SPACE (TRAVEL_SPACE + TRAVEL)
@@ -30,12 +34,13 @@ void createPatient();    //Function prototype.
 void covidResult();      //Function prototype.
 void displayHotSpots();  //Function prototype.
 void updatePatient();    //Function prototype.
-void infectedRecord();   //Function prototype.   
+void infectedRecord();   //Function prototype.
+void patientEvaluation();
 
-ofstream patientDatabase;       //Opening a file in write mode.
 ofstream symptomDatabase;       //Opening a file in write mode.
 ofstream locationDatabase;      //Opening a file in write mode.
 
+string Patient_id, name, dob, adress, date;
 int main()  //Main function !ACTTING MENU!.
 {
     string operation;   //Declearing veriable.
