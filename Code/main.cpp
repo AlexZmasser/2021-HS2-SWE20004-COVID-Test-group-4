@@ -11,7 +11,7 @@
 #include <algorithm>    //Library for functions.
 #include <ctime>
 
-/* */
+/*The define portion is created to formatting, how long a segment is and at space it is at a printed line  */
 
 #define PATIENT_ID 4
 #define NAME 35
